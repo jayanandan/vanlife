@@ -3,11 +3,29 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>    
+
+    <header>
+      <Link className='site-logo' to="/">#vanlife</Link>
+      <nav>        
+        <Link to="/about">About</Link>
+      </nav>
+    </header>
+
+    
+      <Routes>                
+        <Route path='/' element={<Home />}/>
+        <Route path='/about' element={<About />}/>
+      </Routes>      
+    </BrowserRouter>
+    
   </React.StrictMode>
 );
 
